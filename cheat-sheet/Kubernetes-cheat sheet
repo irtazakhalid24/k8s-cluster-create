@@ -3,3 +3,6 @@ kubectl get pods
 
 To apply the yaml file run this commad
 kubectl apply -f service.nodeport.yaml (service.nodeport.yaml is a random yml file which i crated for port forwarding from port 80 to nodeport (any# e.g 15201) to make nginx work)
+
+To look what services running
+kubectl get service
