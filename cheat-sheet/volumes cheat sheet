@@ -3,3 +3,9 @@ docker volume ls                   #Lists the volumes
 docker volume inspect [volumeName] #Display the volume info
 docker volume rm [volumeName]      #Deletes a volume
 docker volume prune                #Deletes all volumes not mounted  
+
+#run a container with a volume
+# e.g    docker run -d --name devtest -v myvol:/app nginx:latest
+
+#volumes location in vm
+/var/lib/docker/volumes/
