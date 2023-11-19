@@ -24,6 +24,7 @@ sudo apt-mark hold kubelet kubeadm kubectl
 #Turn off swap
 sudo swapoff -a
 #Swap can be off by putting hash infront of swap entry in /etc/fstab
+#For Centos swapoff this commnad also work #swapoff /dev/mapper/centos-swap
 
 kubeadm version
 
