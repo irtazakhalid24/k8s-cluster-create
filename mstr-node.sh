@@ -41,3 +41,13 @@ kubectl apply -f https://raw.githubusercontent.com/flannel-io/flannel/master/Doc
 
 #Verify that everything is running and communicating:
 kubectl get pods --all-namespaces
+
+#I had problem of proxy crashed every couple of mins by running these commanads i fixed this issue(I had to configure kubeproxy in master node) and restart the services.
+#kubectl edit cm/kube-proxy -n kube-system
+
+#.....
+#metricsBindAddress: 0.0.0.0:10249
+#.....
+
+#kubectl rollout restart ds kube-proxy -n kube-system
+#kubectl rollout status ds kube-proxy -n kube-system
