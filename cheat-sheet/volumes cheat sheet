@@ -1,0 +1,5 @@
+docker create volume [volumeName]  #Creates a new volume
+docker volume ls                   #Lists the volumes
+docker volume inspect [volumeName] #Display the volume info
+docker volume rm [volumeName]      #Deletes a volume
+docker volume prune                #Deletes all volumes not mounted  
