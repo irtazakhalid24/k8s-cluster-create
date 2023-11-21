@@ -6,3 +6,7 @@ kubectl apply -f service.nodeport.yaml (service.nodeport.yaml is a random yml fi
 
 To look what services running
 kubectl get service
+
+#log files check on kubernetes
+kubectl get logs -f crashingpod
+kubectl get events -n namespace
