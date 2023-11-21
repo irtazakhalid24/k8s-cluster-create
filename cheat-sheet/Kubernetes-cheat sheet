@@ -10,3 +10,6 @@ kubectl get service
 #log files check on kubernetes
 kubectl get logs -f crashingpod
 kubectl get events -n namespace
+
+#pending pods filter
+kubectl get pods --field-selector=status.phase=Pending
