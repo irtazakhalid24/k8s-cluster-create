@@ -13,3 +13,6 @@ kubectl get events -n namespace
 
 #pending pods filter
 kubectl get pods --field-selector=status.phase=Pending
+
+kubectl describe nodes
+kubectl describe nodes | grep 'Name:\|Allocated' -A 5 | grep 'Name\|cpu'
