@@ -1,0 +1,18 @@
+Vim /etc/netplan/50-cloud-init.yaml
+
+network:
+    version: 2
+    ethernets:
+        eth0:
+            addresses: [10.10.10.213/24]
+            nameservers:
+                addresses: [10.10.10.1]
+            routes:
+                - to: default
+                  via: 10.10.10.1
+
+netplan try
+
+#if you encounter any error like "netplan apply says ovsdb-server.service is not running, then i just install this openvswitch"
+
+sudo apt-get install openvswitch-switch-dpdk
