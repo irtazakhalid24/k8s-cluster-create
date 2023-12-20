@@ -52,3 +52,6 @@ kubectl get pods --all-namespaces
 
 #kubectl rollout restart ds kube-proxy -n kube-system
 #kubectl rollout status ds kube-proxy -n kube-system
+
+#Generate new token to join work node
+kubeadm token create --print-join-command
