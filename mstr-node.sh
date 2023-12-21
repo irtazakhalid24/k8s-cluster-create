@@ -10,6 +10,21 @@ sudo apt-get install openvswitch-switch-dpdk
 sudo apt install docker.io
 docker --version
 
+#Create the initial configuration:
+
+sudo mkdir /etc/containerd
+containerd config default | sudo tee /etc/containerd/config.toml
+
+#For this cluster to work properly, we’ll need to enable SystemdCgroup within the configuration. To do that, we’ll need to edit the config we’ve just created:
+sudo nano /etc/containerd/config.toml
+
+#Within that file, find the following line of text:
+#[plugins."io.containerd.grpc.v1.cri".containerd.runtimes.runc.options]
+#Underneath that, find the SystemdCgroup option and change it to true, which should look like this:
+SystemdCgroup = true
+
+#This will solve the crashloopbackoff problem with kube-proxy
+
 #start and enable docker
 sudo systemctl enable docker
 sudo systemctl start docker
