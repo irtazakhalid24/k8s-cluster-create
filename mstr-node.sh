@@ -2,6 +2,10 @@
 sudo apt update
 sudo apt upgrade
 
+#install this package if netplan try does not work and throw error like "Cannot call Open vSwitch: ovsdb-server.service is not running.
+#Failed to reload network settings: Unit dbus-org.freedesktop.network1.service not found."
+sudo apt-get install openvswitch-switch-dpdk
+
 #Install Docker
 sudo apt install docker.io
 docker --version
