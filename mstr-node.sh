@@ -52,7 +52,9 @@ sudo swapoff -a
 kubeadm version
 
 #Initialize kubernetes on Master node
-sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+###sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+
+sudo kubeadm init --control-plane-endpoint=192.168.1.172 --node-name k8-master-d --pod-network-cidr=10.244.0.0/16
 #To regenerate the actual join command (kubeadm token create --print-join-commnad) The join command had time limit if generate a while ago it won't work. In that case you have to regenerate it.
 
 #Configure your user account to access the cluster as non-root user
