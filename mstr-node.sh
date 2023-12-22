@@ -23,6 +23,8 @@ sudo nano /etc/containerd/config.toml
 #Underneath that, find the SystemdCgroup option and change it to true, which should look like this:
 SystemdCgroup = true
 
+#Note: Reboot the system to make these changes take affect.
+
 #This will solve the crashloopbackoff problem with kube-proxy
 
 #start and enable docker
