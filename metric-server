@@ -1,0 +1,22 @@
+https://github.com/kubernetes-sigs/metrics-server/blob/master/README.md
+https://gist.github.com/NileshGule/8f772cf04ea6ae9c76d3f3e9186165c2
+
+
+Deploy metric server
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+
+edit metrics server deployment by adding command
+kubectl -n kube-system edit deploy metrics-server
+
+kubernetes-metrics-server.yaml (this is the file name) only add the command: part
+ containers:
+      - args:
+        - --cert-dir=/tmp
+        - --secure-port=4443
+        - --kubelet-preferred-address-types=InternalIP,ExternalIP,Hostname
+        - --kubelet-use-node-status-port
+        - --metric-resolution=15s
+       command:
+        - /metrics-server
+        - --kubelet-insecure-tls
+        - --kubelet-preferred-address-types=InternalIP
