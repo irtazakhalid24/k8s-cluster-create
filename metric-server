@@ -20,3 +20,8 @@ kubernetes-metrics-server.yaml (this is the file name) only add the command: par
         - /metrics-server
         - --kubelet-insecure-tls
         - --kubelet-preferred-address-types=InternalIP
+
+
+
+2nd way to make it work
+https://www.linuxtechi.com/how-to-install-kubernetes-metrics-server/
