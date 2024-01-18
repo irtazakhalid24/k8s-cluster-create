@@ -25,3 +25,22 @@ kubernetes-metrics-server.yaml (this is the file name) only add the command: par
 
 2nd way to make it work
 https://www.linuxtechi.com/how-to-install-kubernetes-metrics-server/
+
+
+To remove the metric server from k8s cluster run all these 
+
+kubectl delete service/metrics-server -n  kube-system
+kubectl delete deployment.apps/metrics-server  -n  kube-system
+kubectl delete apiservices.apiregistration.k8s.io v1beta1.metrics.k8s.io
+kubectl delete clusterroles.rbac.authorization.k8s.io system:aggregated-metrics-reader
+kubectl delete clusterroles.rbac.authorization.k8s.io system:metrics-server 
+kubectl delete clusterrolebinding metrics-server:system:auth-delegator
+kubectl delete clusterrolebinding system:metrics-server          
+kubectl delete rolebinding metrics-server-auth-reader -n kube-system 
+kubectl delete serviceaccount metrics-server -n kube-system
+
+At last to remove this part
+kube-system    metrics-server-678d4b775-qbbzq          1/1     Terminating   0             4m9s
+
+Delete this pod by running this command
+kubectl delete pod metrics-server-678d4b775-qbbzq -n kube-system --force --grace-period=0 (this should be your pod metrics-server-678d4b775-qbbzq)
